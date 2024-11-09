@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<TabPane fx:id="mainTabPane" xmlns:fx="http://javafx.com/fxml" fx:controller="com.manager.ClinicManagerController">
+    <!-- Home Tab -->
+    <Tab text="Home" closable="false">
+        <VBox spacing="10" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="Provider Info:" style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+            <TextArea fx:id="providerListArea" editable="false" wrapText="true" 
+                      VBox.vgrow="ALWAYS" maxHeight="Infinity"/>
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Schedule Doctor Appointment" onAction="#navigateToDoctorTab"/>
+                <Button text="Schedule Technician Appointment" onAction="#navigateToTechTab"/>
+            </HBox>
+        </VBox>
+    </Tab>
+
+    <!-- Doctor Appointment Tab -->
+    <Tab text="Doctor Appointment" closable="false">
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <TextField fx:id="doctorFirstName" promptText="First Name"/>
+            <TextField fx:id="doctorLastName" promptText="Last Name"/>
+            <DatePicker fx:id="doctorDOB" promptText="Date of Birth"/>
+            <DatePicker fx:id="doctorAppointmentDate" promptText="Appointment Date"/>
+            <ComboBox fx:id="doctorTimeSlot" promptText="Select Time Slot"/>
+            <TextField fx:id="doctorNPI" promptText="Enter NPI"/>
+            <Button text="Book Appointment" onAction="#handleDoctorBooking"/>
+            <TextArea fx:id="doctorAppointmentOutput" editable="false" wrapText="true" prefRowCount="10"/>
+        </VBox>
+    </Tab>
+    
+    <!-- Technician Appointment Tab -->
+    <Tab text="Technician Appointment" closable="false">
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <TextField fx:id="techFirstName" promptText="First Name"/>
+            <TextField fx:id="techLastName" promptText="Last Name"/>
+            <DatePicker fx:id="techDOB" promptText="Date of Birth"/>
+            <DatePicker fx:id="techAppointmentDate" promptText="Appointment Date"/>
+            <ComboBox fx:id="techTimeSlot" promptText="Select Time Slot"/>
+            <ComboBox fx:id="imagingType" promptText="Select Imaging Type"/>
+            <Button text="Book Appointment" onAction="#handleTechnicianBooking"/>
+            <TextArea fx:id="technicianAppointmentOutput" editable="false" wrapText="true" prefRowCount="10"/>
+        </VBox>
+    </Tab>
+    
+    <!-- Cancel Appointment Tab -->
+    <Tab text="Cancel Appointment" closable="false">
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <GridPane vgap="10" hgap="10">
+                <Label text="Appointment Date:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="cancelDate" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            
+                <Label text="Time Slot:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cancelTimeSlot" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            
+                <Label text="First Name:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="cancelFirstName" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            
+                <Label text="Last Name:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="cancelLastName" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            
+                <Label text="Date of Birth:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="cancelDOB" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+            </GridPane>
+        
+            <Button text="Cancel Appointment" onAction="#handleCancelAppointment"/>
+            <TextArea fx:id="cancelAppointmentOutput" editable="false" wrapText="true" prefRowCount="10"/>
+        </VBox>
+    </Tab>
+
+    <!-- Reschedule Appointment Tab -->
+    <Tab text="Reschedule Appointment" closable="false">
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <GridPane vgap="10" hgap="10">
+                <Label text="Appointment Date:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="rescheduleOldDate" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="New Appointment Date:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="rescheduleNewDate" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                
+                <Label text="Current Time Slot:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="rescheduleOldTimeSlot" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                
+                <Label text="New Time Slot:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="rescheduleNewTimeSlot" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                
+                <Label text="First Name:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="rescheduleFirstName" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                
+                <Label text="Last Name:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                <TextField fx:id="rescheduleLastName" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                
+                <Label text="Date of Birth:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="rescheduleDOB" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+            </GridPane>
+            
+            <Button text="Reschedule Appointment" onAction="#handleRescheduleAppointment"/>
+            <TextArea fx:id="rescheduleAppointmentOutput" editable="false" wrapText="true" prefRowCount="10"/>
+        </VBox>
+    </Tab>
+
+    <!-- Appointment Data Tab -->
+    <Tab text="Appointment Data" closable="false">
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <HBox spacing="10">
+                <Button text="List All Appointments" onAction="#handlePA"/>
+                <Button text="List by Patient" onAction="#handlePP"/>
+                <Button text="List by Location" onAction="#handlePL"/>
+                <Button text="List Office Visits" onAction="#handlePO"/>
+                <Button text="List Imaging" onAction="#handlePI"/>
+            </HBox>
+            <TextArea fx:id="appointmentDataOutput" editable="false" wrapText="true" prefRowCount="20"/>
+        </VBox>
+    </Tab>
+
+    <!-- Financial Data Tab -->
+    <Tab text="Financial Data" closable="false">
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <HBox spacing="10">
+                <Button text="View Billing Statements" onAction="#handlePS"/>
+                <Button text="View Provider Credits" onAction="#handlePC"/>
+            </HBox>
+            <TextArea fx:id="financialDataOutput" editable="false" wrapText="true" prefRowCount="20"/>
+        </VBox>
+    </Tab>
+</TabPane>
