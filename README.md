@@ -45,6 +45,8 @@ The project includes the following files:
 * `Technician.java`: Represents a technician object.
 * `Timeslot.java`: Represents a timeslot with an hour and minute. Implements the `Comparable` interface.
 * `Visit.java`: Represents each visit.
+* `providers.txt`: Text file containing provider information.
+* `Project3TestCases.txt`: Text file containing test cases for this project.
 
 ## Technologies Used:
 * __Java__: Core programming language for building the application.
@@ -64,5 +66,5 @@ Open the `index.html` file in a web browser to view the documentation.
 
 
 ## Authors:
-* [Harsh Singh](https://github.com/harshsingh-7685)
-* [Surya Bhardwaj](https://github.com/surya2003)
+* [Harsh Singh](harsh.singh7685@gmail.com)
+* [Surya Bhardwaj](surya2003wj@gmail.com)
