@@ -66,5 +66,5 @@ Open the `index.html` file in a web browser to view the documentation.
 
 
 ## Authors:
-* [Harsh Singh](harsh.singh7685@gmail.com)
-* [Surya Bhardwaj](surya2003wj@gmail.com)
+* [Harsh Singh](mailto:harsh.singh7685@gmail.com)
+* [Surya Bhardwaj](mailto:surya2003wj@gmail.com)
